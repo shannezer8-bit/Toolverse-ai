@@ -1,1 +1,125 @@
-<!DOCTYPE html><html><body><h1>Pdf</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Summarizer - ToolVerse AI</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f7fa;
+      margin: 0;
+    }
+
+    .tool-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      padding: 12px;
+      border: 2px dashed #4c6ef5;
+      width: 100%;
+      border-radius: 10px;
+      background: #f0f3ff;
+      cursor: pointer;
+    }
+
+    .btn {
+      background: #4c6ef5;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .output-box {
+      background: #fafbff;
+      padding: 20px;
+      border-left: 4px solid #4c6ef5;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      min-height: 120px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tool-container">
+
+    <div class="title">📄 PDF Summarizer</div>
+    <div class="subtitle">Upload a PDF and get a clean, AI-generated summary.</div>
+
+    <div class="card">
+      <input type="file" id="pdfInput" accept="application/pdf" />
+      <div class="btn" onclick="summarizePDF()">Summarize PDF</div>
+    </div>
+
+    <div class="card">
+      <h3>📘 Summary Output</h3>
+      <div id="summaryBox" class="output-box">Your summary will appear here…</div>
+    </div>
+
+  </div>
+
+  <script>
+    async function summarizePDF() {
+      const file = document.getElementById('pdfInput').files[0];
+      if (!file) {
+        alert("Please upload a PDF file.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = async function() {
+        const base64PDF = reader.result.split(',')[1];
+
+        // TODO: Add your Gemini API endpoint + key
+        const response = await fetch("YOUR_GOOGLE_API_URL", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer YOUR_API_KEY"
+          },
+          body: JSON.stringify({
+            contents: [
+              { parts: [{ text: "Summarize this PDF content:" }] }
+            ]
+          })
+        });
+
+        const data = await response.json();
+        document.getElementById("summaryBox").innerText =
+          data.output || "Error: Summary failed.";
+      };
+
+      reader.readAsDataURL(file);
+    }
+  </script>
+
+</body>
+</html>
