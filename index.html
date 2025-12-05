@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ToolVerse AI</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f7fa;
     }
+
     .sidebar {
       width: 260px;
       height: 100vh;
@@ -20,29 +22,51 @@
       left: 0;
       top: 0;
     }
+
     .sidebar h2 { margin-top: 0; }
+
     .sidebar a {
       display: block;
       color: #ddd;
       padding: 10px 0;
       text-decoration: none;
       font-size: 15px;
+      cursor: pointer;
     }
+
     .sidebar a:hover {
       color: #4c6ef5;
     }
+
+    .dashboard-header {
+      background: linear-gradient(90deg, #4c6ef5, #9b5cf0);
+      padding: 25px;
+      color: white;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      margin-left: 260px;
+    }
+
     .main {
       margin-left: 260px;
       padding: 30px;
+      transition: opacity 0.3s ease;
     }
+
     .tool-card {
       background: white;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .tool-card h3 { margin-top: 0; }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
     .button {
       background: #4c6ef5;
       color: white;
@@ -54,161 +78,66 @@
     }
   </style>
 </head>
+
 <body>
-  <style>
-    /* Enhanced Dashboard UI */
-    .dashboard-header {
-      background: linear-gradient(90deg, #4c6ef5, #9b5cf0);
-      padding: 25px;
-      color: white;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      margin-left: 260px;
-    }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .tool-card {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .tool-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-    }
-
-    .tool-icon {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-  </style>
 
   <div class="dashboard-header">
     <h1>🚀 ToolVerse AI Dashboard</h1>
     <p>Your personalized AI Tools Control Center</p>
   </div>
+
   <div class="sidebar">
     <h2>ToolVerse AI</h2>
-    <a href="#pdf">📄 PDF Summarizer</a>
-    <a href="#resume">📝 Resume Maker AI</a>
-    <a href="#caption">💬 Caption Generator</a>
-    <a href="#story">📚 Kids Story Maker</a>
-    <a href="#homework">🎓 Homework Solver</a>
-    <a href="#budget">💰 Budget Planner</a>
-    <a href="#image">🎨 Image Generator</a>
+    <a onclick="loadTool('pdf')">📄 PDF Summarizer</a>
+    <a onclick="loadTool('resume')">📝 Resume Maker AI</a>
+    <a onclick="loadTool('caption')">💬 Caption Generator</a>
+    <a onclick="loadTool('story')">📚 Kids Story Maker</a>
+    <a onclick="loadTool('homework')">🎓 Homework Solver</a>
+    <a onclick="loadTool('budget')">💰 Budget Planner</a>
+    <a onclick="loadTool('image')">🎨 Image Generator</a>
   </div>
 
-  <div class="main">
+  <!-- MAIN HOME PAGE CONTENT -->
+  <div class="main" id="main-content">
     <h1>Welcome to ToolVerse AI</h1>
-    <p>Your all‑in‑one AI Tools Factory. Select a tool from the left to begin.</p>
+    <p>Your all-in-one AI Tools Factory. Select a tool from the left to begin.</p>
 
-    <div id="pdf" class="tool-card">
-      <h3>📄 PDF Summarizer</h3>
-      <p>Upload a PDF and get an instant summary powered by AI.</p>
-      <div class="button">Open Tool</div>
-    </div>
-
-    <div id="resume" class="tool-card">
-      <h3>📝 Resume Maker AI</h3>
-      <p>Create a professional resume instantly with AI.</p>
-      <div class="button">Open Tool</div>
-    </div>
-
-    <div id="caption" class="tool-card">
-      <h3>💬 Social Media Caption Generator</h3>
-      <p>Generate creative captions for Instagram, Facebook & more.</p>
-      <div class="button">Open Tool</div>
-    </div>
-
-    <div id="story" class="tool-card">
-      <h3>📚 Kids Story Maker</h3>
-      <p>Enter a topic and get a complete fun story for kids.</p>
-      <div class="button">Open Tool</div>
-    </div>
-
-    <div id="homework" class="tool-card">
-      <h3>🎓 Homework Solver</h3>
-      <p>Type a question and let AI help you understand the answer.</p>
-      <div class="button">Open Tool</div>
-    </div>
-
-    <div id="budget" class="tool-card">
-      <h3>💰 Budget Planner AI</h3>
-      <p>Plan your monthly expenses using smart AI suggestions.</p>
-      <div class="button">Open Tool</div>
-    </div>
-
-    <div id="image" class="tool-card">
-      <h3>🎨 Image Generator</h3>
-      <p>Create AI images from text instantly.</p>
-      <div class="button">Open Tool</div>
-    </div>
-  </div>
-  <!-- PDF SUMMARIZER TOOL PAGE UI -->
-  <div id="pdf-tool" class="main" style="display:none;">
-    <h1>📄 PDF Summarizer</h1>
-    <p>Upload your PDF and get an instant AI-powered summary.</p>
-
-    <div class="tool-card">
-      <input type="file" id="pdfInput" accept="application/pdf" />
-      <br><br>
-      <div class="button" onclick="summarizePDF()">Summarize PDF</div>
-    </div>
-
-    <div class="tool-card">
-      <h3>Summary Output</h3>
-      <p id="summaryText">Your summary will appear here...</p>
-    </div>
+    <div class="tool-card"><h3>📄 PDF Summarizer</h3> <p>AI PDF summary tool.</p></div>
+    <div class="tool-card"><h3>📝 Resume Maker</h3> <p>Create resumes instantly.</p></div>
+    <div class="tool-card"><h3>💬 Caption Generator</h3> <p>Auto captions for social media.</p></div>
+    <div class="tool-card"><h3>📚 Kids Story</h3> <p>AI stories for kids.</p></div>
+    <div class="tool-card"><h3>🎓 Homework Solver</h3> <p>Solve & explain homework.</p></div>
+    <div class="tool-card"><h3>💰 Budget Planner</h3> <p>Plan your expenses smartly.</p></div>
+    <div class="tool-card"><h3>🎨 Image Generator</h3> <p>Create images from text.</p></div>
   </div>
 
+  <!-- SPA ROUTER SCRIPT -->
   <script>
-    // Switch pages
-    const buttons = document.querySelectorAll('.button');
-    document.querySelector('a[href="#pdf"]').onclick = () => showPDFTool();
+    const mainContent = document.getElementById("main-content");
 
-    function showPDFTool() {
-      document.querySelector('.main').style.display = 'none';
-      document.querySelector('#pdf-tool').style.display = 'block';
+    function fadeIn() {
+      mainContent.style.opacity = 0;
+      let opa = 0;
+      const interval = setInterval(() => {
+        opa += 0.05;
+        mainContent.style.opacity = opa;
+        if (opa >= 1) clearInterval(interval);
+      }, 15);
     }
 
-    async function summarizePDF() {
-      const file = document.getElementById('pdfInput').files[0];
-      if (!file) {
-        alert('Please upload a PDF file first.');
-        return;
+    async function loadTool(page) {
+      const filePath = `./tools/${page}.html`;
+
+      try {
+        const req = await fetch(filePath);
+        const html = await req.text();
+        mainContent.innerHTML = html;
+        fadeIn();
+      } catch (e) {
+        mainContent.innerHTML = "<h2>Error loading tool page</h2>";
       }
-
-      // READ PDF FILE AS BASE64
-      const reader = new FileReader();
-      reader.onload = async function () {
-        const base64PDF = reader.result.split(',')[1];
-
-        // --- SAMPLE GOOGLE AI STUDIO REQUEST ---
-        const response = await fetch('YOUR_GOOGLE_API_URL', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_API_KEY'
-          },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{ text: "Summarize the following PDF content:" }]
-            }]
-          })
-        });
-
-        const data = await response.json();
-        document.getElementById('summaryText').innerText = data.output || "Summary failed. Check API.";
-      };
-
-      reader.readAsDataURL(file);
     }
   </script>
+
 </body>
 </html>
