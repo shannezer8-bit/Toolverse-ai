@@ -63,6 +63,7 @@
       border-radius: 10px;
       white-space: pre-wrap;
       min-height: 120px;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -72,7 +73,7 @@
   <div class="tool-container">
 
     <div class="title">📄 PDF Summarizer</div>
-    <div class="subtitle">Upload a PDF and get a clean, AI-generated summary.</div>
+    <div class="subtitle">Upload a PDF and get a clean, AI-generated summary powered by Gemini.</div>
 
     <div class="card">
       <input type="file" id="pdfInput" accept="application/pdf" />
@@ -87,6 +88,7 @@
   </div>
 
   <script>
+
     async function summarizePDF() {
       const file = document.getElementById('pdfInput').files[0];
       if (!file) {
@@ -94,27 +96,51 @@
         return;
       }
 
+      document.getElementById("summaryBox").innerText = "⏳ Summarizing, please wait...";
+
+      // Convert PDF to Base64
       const reader = new FileReader();
-      reader.onload = async function() {
+      reader.onload = async function () {
         const base64PDF = reader.result.split(',')[1];
 
-        // TODO: Add your Gemini API endpoint + key
-        const response = await fetch("YOUR_GOOGLE_API_URL", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer YOUR_API_KEY"
-          },
-          body: JSON.stringify({
-            contents: [
-              { parts: [{ text: "Summarize this PDF content:" }] }
-            ]
-          })
-        });
+        // 🔥 IMPORTANT — replace ONLY the XXXXX with your API key
+        const API_KEY = "gen-lang-client-0426287918";
 
-        const data = await response.json();
-        document.getElementById("summaryBox").innerText =
-          data.output || "Error: Summary failed.";
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+        const payload = {
+          contents: [
+            {
+              parts: [
+                { text: "Summarize the following PDF content:" },
+                { inline_data: { mime_type: "application/pdf", data: base64PDF } }
+              ]
+            }
+          ]
+        };
+
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          const data = await response.json();
+
+          if (data.candidates && data.candidates[0].content.parts[0].text) {
+            document.getElementById("summaryBox").innerText =
+              data.candidates[0].content.parts[0].text;
+          } else {
+            document.getElementById("summaryBox").innerText =
+              "❌ Summary failed. Check API key or try another PDF.";
+          }
+
+        } catch (err) {
+          console.error(err);
+          document.getElementById("summaryBox").innerText =
+            "⚠️ Error connecting to Gemini API.";
+        }
       };
 
       reader.readAsDataURL(file);
