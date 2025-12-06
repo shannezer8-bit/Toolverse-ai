@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToolVerse AI</title>
+
+    <!-- ⭐ SEO Meta Description -->
+    <meta
+      name="description"
+      content="ToolVerse AI – All-in-one AI tools dashboard offering PDF summarizer, resume maker, caption generator, kids story creator, homework solver, budget planner and AI image generator."
+    />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+      crossorigin="anonymous"
+    />
+
     <style>
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
       }
       /* Custom scrollbar for sidebar */
       ::-webkit-scrollbar {
@@ -17,18 +32,17 @@
         height: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+        background: #f1f1f1;
       }
       ::-webkit-scrollbar-thumb {
-        background: #888; 
+        background: #888;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
+        background: #555;
       }
       .loader {
         border-top-color: #3498db;
-        -webkit-animation: spinner 1.5s linear infinite;
         animation: spinner 1.5s linear infinite;
       }
       @keyframes spinner {
@@ -36,33 +50,37 @@
         100% { transform: rotate(360deg); }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
-    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "rehype-katex": "https://aistudiocdn.com/rehype-katex@^7.0.1",
-    "katex/": "https://aistudiocdn.com/katex@^0.16.25/",
-    "remark-math": "https://aistudiocdn.com/remark-math@^6.0.0",
-    "jspdf": "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm",
-    "mammoth": "https://cdn.jsdelivr.net/npm/mammoth@1.6.0/+esm",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/package/xlsx.mjs",
-    "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm",
-    "pdfjs-dist": "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/+esm",
-    "pdfjs-dist/build/pdf.worker.mjs": "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.mjs",
-    "jszip": "https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+          "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+          "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+          "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+          "react/": "https://aistudiocdn.com/react@^19.2.1/",
+          "react": "https://aistudiocdn.com/react@^19.2.1",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+          "rehype-katex": "https://aistudiocdn.com/rehype-katex@^7.0.1",
+          "katex/": "https://aistudiocdn.com/katex@^0.16.25/",
+          "remark-math": "https://aistudiocdn.com/remark-math@^6.0.0",
+          "jspdf": "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm",
+          "mammoth": "https://cdn.jsdelivr.net/npm/mammoth@1.6.0/+esm",
+          "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/package/xlsx.mjs",
+          "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm",
+          "pdfjs-dist": "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/+esm",
+          "pdfjs-dist/build/pdf.worker.mjs":
+            "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.mjs",
+          "jszip": "https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm"
+        }
+      }
+    </script>
+
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+
   <body class="bg-gray-50 text-gray-900 antialiased h-screen overflow-hidden">
     <div id="root" class="h-full"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
