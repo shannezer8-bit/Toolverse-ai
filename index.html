@@ -1,26 +1,38 @@
-<meta property="og:title" content="ToolVerse AI" />
-<meta property="og:description" content="All-in-one AI tools: PDF summarizer, resume builder, caption AI, kids story generator, homework solver, budget planner and AI image generator." />
-<meta property="og:image" content="https://toolverse-ai.vercel.app/preview.png" />
-<meta property="og:url" content="https://toolverse-ai.vercel.app/" />
-<meta property="og:type" content="website" />
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToolVerse AI</title>
 
-    <!-- ⭐ SEO Meta Description -->
+    <!-- Title -->
+    <title>ToolVerse AI - All-in-One AI Tools Dashboard</title>
+
+    <!-- SEO Meta Description -->
     <meta
       name="description"
-      content="ToolVerse AI – All-in-one AI tools dashboard offering PDF summarizer, resume maker, caption generator, kids story creator, homework solver, budget planner and AI image generator."
+      content="ToolVerse AI – All-in-one AI tools dashboard for PDF summarizer, resume maker, caption generator, kids story creator, homework solver, budget planner and AI image generator."
     />
 
+    <!-- OpenGraph (WhatsApp / Facebook Preview) -->
+    <meta property="og:title" content="ToolVerse AI" />
+    <meta
+      property="og:description"
+      content="All-in-one AI tools: PDF summarizer, resume builder, caption AI, kids story generator, homework solver, budget planner & AI image generator."
+    />
+    <meta property="og:image" content="https://toolverse-ai.vercel.app/preview.png" />
+    <meta property="og:url" content="https://toolverse-ai.vercel.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- KaTeX for Homework Solver -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -31,13 +43,10 @@
       body {
         font-family: "Inter", sans-serif;
       }
-      /* Custom scrollbar for sidebar */
+
+      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
-        height: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
       }
       ::-webkit-scrollbar-thumb {
         background: #888;
@@ -46,6 +55,8 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #555;
       }
+
+      /* Loader */
       .loader {
         border-top-color: #3498db;
         animation: spinner 1.5s linear infinite;
@@ -56,6 +67,7 @@
       }
     </style>
 
+    <!-- IMPORT MAPS -->
     <script type="importmap">
       {
         "imports": {
@@ -74,18 +86,20 @@
           "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/package/xlsx.mjs",
           "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/+esm",
           "pdfjs-dist": "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/+esm",
-          "pdfjs-dist/build/pdf.worker.mjs":
-            "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.mjs",
+          "pdfjs-dist/build/pdf.worker.mjs": "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.mjs",
           "jszip": "https://cdn.jsdelivr.net/npm/jszip@3.10.1/+esm"
         }
       }
     </script>
 
+    <!-- Optional custom styling -->
     <link rel="stylesheet" href="/index.css" />
   </head>
 
   <body class="bg-gray-50 text-gray-900 antialiased h-screen overflow-hidden">
     <div id="root" class="h-full"></div>
+
+    <!-- Main React App -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
