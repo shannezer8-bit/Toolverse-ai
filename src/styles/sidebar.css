@@ -1,0 +1,25 @@
+.sidebar {
+  width: 220px;
+  background: black;
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  padding: 25px;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,17 @@
+body {
+  background: #eef3fa;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+.notes-container {
+  max-width: 800px;
+  margin: auto;
+}
+.pin-screen input {
+  padding: 8px;
+  margin-top: 10px;
+}
+.pin-screen button {
+  padding: 8px 14px;
+  margin-left: 10px;
+}

@@ -1,0 +1,38 @@
+.notes-container {
+  max-width: 700px;
+  margin: auto;
+  padding-top: 50px;
+}
+
+.notes-list {
+  margin-top: 20px;
+}
+
+.note-box {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.note-box p {
+  margin: 0;
+  font-size: 17px;
+}
+
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #d93636;
+}
