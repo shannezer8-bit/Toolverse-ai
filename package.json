@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+<<<<<<< HEAD
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -27,5 +28,32 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"
+=======
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^0.555.0",
+    "recharts": "^3.5.1",
+    "react-markdown": "^10.1.0",
+    "@google/genai": "^1.31.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "rehype-katex": "^7.0.1",
+    "katex": "^0.16.25",
+    "remark-math": "^6.0.0",
+    "jspdf": "2.5.1",
+    "mammoth": "1.6.0",
+    "xlsx": "latest",
+    "html2canvas": "1.4.1",
+    "pdfjs-dist": "3.11.174",
+    "jszip": "3.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+>>>>>>> 4a50aa9ec90b65fa7e634dda13d2bd160048e2f7
   }
 }

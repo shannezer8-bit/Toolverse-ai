@@ -1,0 +1,5 @@
+{
+  "name": "ToolVerse AI",
+  "description": "A comprehensive AI dashboard featuring a PDF Summarizer, Resume Maker, Caption Generator, Story Maker, Homework Solver, Budget Planner, and Image Generator powered by Google Gemini.",
+  "requestFramePermissions": []
+}
