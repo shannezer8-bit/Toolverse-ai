@@ -1,9 +1,11 @@
 ﻿import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+/* Main pages (adjust paths if your files are in different folders) */
 import Dashboard from "./pages/Dashboard";
 import Notes from "./pages/Notes";
 
+/* Tool components (importing from project root components/tools) */
 import PdfSummarizer from "../components/tools/PdfSummarizer";
 import ResumeMaker from "../components/tools/ResumeMaker";
 import CaptionGenerator from "../components/tools/CaptionGenerator";
@@ -16,9 +18,11 @@ export default function App() {
   return (
     <Router>
       <Routes>
+        {/* Main screens */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/notes" element={<Notes />} />
 
+        {/* Tools */}
         <Route path="/tools/pdf" element={<PdfSummarizer />} />
         <Route path="/tools/resume" element={<ResumeMaker />} />
         <Route path="/tools/caption" element={<CaptionGenerator />} />
