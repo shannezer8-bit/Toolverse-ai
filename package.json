@@ -1,59 +1,34 @@
 {
   "name": "toolverse-ai",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
-<<<<<<< HEAD
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.10.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
-=======
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "lucide-react": "^0.555.0",
-    "recharts": "^3.5.1",
-    "react-markdown": "^10.1.0",
     "@google/genai": "^1.31.0",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.4",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.556.0",
+    "mammoth": "^1.11.0",
+    "pdfjs-dist": "^5.4.449",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^6.22.3",
+    "recharts": "^3.5.1",
     "rehype-katex": "^7.0.1",
-    "katex": "^0.16.25",
     "remark-math": "^6.0.0",
-    "jspdf": "2.5.1",
-    "mammoth": "1.6.0",
-    "xlsx": "latest",
-    "html2canvas": "1.4.1",
-    "pdfjs-dist": "3.11.174",
-    "jszip": "3.10.1"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
->>>>>>> 4a50aa9ec90b65fa7e634dda13d2bd160048e2f7
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
   }
 }
