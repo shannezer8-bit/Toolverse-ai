@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "toolverse-ai",
   "version": "0.0.0",
   "private": true,
@@ -32,4 +32,3 @@
     "vite": "^5.0.0"
   }
 }
-

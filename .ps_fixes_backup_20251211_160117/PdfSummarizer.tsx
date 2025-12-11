@@ -1,9 +1,3 @@
-﻿import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
-import "pdfjs-dist/web/pdf_viewer.css";
-
-// configure pdf.js worker (pull from CDN)
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.js`;
 import React, { useState, useRef, useEffect } from 'react';
 import { ToolLayout } from '../ToolLayout';
 import { FileText, Upload, Loader2, AlertCircle, FileCheck, FileOutput, FileInput, ArrowRight, Download, ImageIcon, Settings, FileSpreadsheet, X, Minimize2, Sliders } from 'lucide-react';
@@ -13,7 +7,7 @@ import { jsPDF } from 'jspdf';
 import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 import html2canvas from 'html2canvas';
-
+import * as pdfjsLib from 'pdfjs-dist';
 import JSZip from 'jszip';
 
 // --- PDF Worker Initialization ---
@@ -631,6 +625,3 @@ export const PdfSummarizer: React.FC = () => {
     </ToolLayout>
   );
 };
-
-export default initPdfWorker;
-
